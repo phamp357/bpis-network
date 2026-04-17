@@ -1,10 +1,11 @@
-import PagePlaceholder from "@/components/PagePlaceholder";
+import ArticlePage from "@/components/ArticlePage";
 
 export default function KingdomStrategyPage() {
   return (
-    <PagePlaceholder
-      title="Kingdom Strategy"
-      description="Educational reference: Spiritual, Human, and Applied Intelligence — the integrated operating framework."
+    <ArticlePage
+      slug="kingdom-strategy-overview"
+      fallbackTitle="Kingdom Strategy"
+      fallbackDescription="Spiritual, Human, and Applied Intelligence — the integrated operating framework."
       phase={3}
     />
   );

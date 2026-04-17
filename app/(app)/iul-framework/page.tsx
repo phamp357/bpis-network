@@ -1,10 +1,11 @@
-import PagePlaceholder from "@/components/PagePlaceholder";
+import ArticlePage from "@/components/ArticlePage";
 
 export default function IulFrameworkPage() {
   return (
-    <PagePlaceholder
-      title="IUL Framework"
-      description="Reference guide: advisor vetting criteria, partnership structuring, and member education materials."
+    <ArticlePage
+      slug="iul-framework-overview"
+      fallbackTitle="IUL Framework"
+      fallbackDescription="Advisor vetting criteria, partnership structuring, and member education."
       phase={3}
     />
   );
