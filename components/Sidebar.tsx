@@ -13,7 +13,7 @@ export default function Sidebar({ userEmail }: { userEmail: string }) {
   }, {});
 
   return (
-    <aside className="w-64 shrink-0 border-r border-white/10 bg-black/30 flex flex-col">
+    <aside className="w-64 shrink-0 border-r border-white/10 bg-black/30 flex flex-col print:hidden">
       <div className="p-5 border-b border-white/10">
         <div className="font-semibold tracking-tight">BPIS Network</div>
         <div className="text-xs text-white/50 mt-0.5">Operator console</div>

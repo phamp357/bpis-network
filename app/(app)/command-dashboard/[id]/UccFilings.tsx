@@ -177,6 +177,16 @@ export default function UccFilings({
                   {uccStatusLabel(f.status)}
                 </span>
                 <div className="flex-1 min-w-0">
+                  <div className="mb-2">
+                    <a
+                      href={`/ucc-print/${f.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-cyan-300/80 hover:text-cyan-200 underline underline-offset-2"
+                    >
+                      Print / Export PDF ↗
+                    </a>
+                  </div>
                   <div className="text-sm">
                     <span className="text-white/50">State:</span>{" "}
                     <span className="text-white">{f.filing_state}</span>

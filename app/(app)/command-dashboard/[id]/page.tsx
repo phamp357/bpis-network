@@ -11,6 +11,7 @@ import DealPhaseControls from "./DealPhaseControls";
 import DealOverviewEditor from "./DealOverviewEditor";
 import CapitalStack from "./CapitalStack";
 import UccFilings from "./UccFilings";
+import OocemrAnalysis from "./OocemrAnalysis";
 import DealDangerZone from "./DealDangerZone";
 
 type SearchParams = Promise<{ edit?: string }>;
@@ -31,7 +32,7 @@ export default async function DealDetailPage({
   const { data: deal } = await supabase
     .from("deals")
     .select(
-      "id, name, target_entity, phase, status, estimated_value, notes, created_at, updated_at"
+      "id, name, target_entity, phase, status, estimated_value, notes, oocemr_analysis, created_at, updated_at"
     )
     .eq("id", id)
     .maybeSingle();
@@ -131,6 +132,12 @@ export default async function DealDetailPage({
           )}
         </div>
       )}
+
+      {/* OOCEMR analysis */}
+      <OocemrAnalysis
+        dealId={deal.id}
+        analysis={deal.oocemr_analysis as Parameters<typeof OocemrAnalysis>[0]["analysis"]}
+      />
 
       {/* Capital stack */}
       <CapitalStack dealId={deal.id} items={stack ?? []} />

@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { runOocemrAnalysis } from "@/lib/claude/oocemr";
 
 type DealPhase = "phase_1" | "phase_2" | "phase_3" | "phase_4" | "phase_5";
 type DealStatus = "active" | "closed" | "dead" | "paused";
@@ -271,4 +272,77 @@ export async function deleteUccFilingAction(dealId: string, filingId: string) {
   if (error) throw new Error(error.message);
   revalidatePath(`/command-dashboard/${dealId}`);
   revalidatePath("/ucc-wealth-engine");
+}
+
+// === OOCEMR (Opus 4.7) ===
+
+export async function runOocemrAnalysisAction(dealId: string) {
+  const user = await currentUser();
+  const supabase = await createClient();
+
+  // Fetch deal + stack + filings
+  const { data: deal, error: dealErr } = await supabase
+    .from("deals")
+    .select("name, target_entity, estimated_value, notes, phase")
+    .eq("id", dealId)
+    .maybeSingle();
+  if (dealErr) throw new Error(dealErr.message);
+  if (!deal) throw new Error("Deal not found");
+
+  const [{ data: stack }, { data: filings }] = await Promise.all([
+    supabase
+      .from("capital_stack_items")
+      .select("tier, source, amount, terms")
+      .eq("deal_id", dealId)
+      .order("order_index", { ascending: true }),
+    supabase
+      .from("ucc_filings")
+      .select(
+        "filing_state, filing_number, debtor, secured_party, collateral_description, status"
+      )
+      .eq("deal_id", dealId),
+  ]);
+
+  const { analysis } = await runOocemrAnalysis({
+    deal: {
+      name: deal.name,
+      target_entity: deal.target_entity,
+      estimated_value: deal.estimated_value != null ? Number(deal.estimated_value) : null,
+      notes: deal.notes,
+      phase: deal.phase,
+    },
+    capital_stack: (stack ?? []).map((s) => ({
+      tier: s.tier,
+      source: s.source,
+      amount: s.amount != null ? Number(s.amount) : null,
+      terms: (s.terms ?? {}) as Record<string, unknown>,
+    })),
+    ucc_filings: (filings ?? []).map((f) => ({
+      filing_state: f.filing_state,
+      filing_number: f.filing_number,
+      debtor: f.debtor,
+      secured_party: f.secured_party,
+      collateral_description: f.collateral_description,
+      status: f.status,
+    })),
+  });
+
+  const { error: updErr } = await supabase
+    .from("deals")
+    .update({ oocemr_analysis: analysis as never })
+    .eq("id", dealId);
+  if (updErr) throw new Error(updErr.message);
+
+  await supabase.from("events").insert({
+    user_id: user.id,
+    event_type: "deal.oocemr_analyzed",
+    entity_type: "deals",
+    entity_id: dealId,
+    payload: {
+      confidence_score: analysis.confidence_score,
+      red_flag_count: analysis.red_flags.length,
+    },
+  });
+
+  revalidatePath(`/command-dashboard/${dealId}`);
 }
