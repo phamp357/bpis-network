@@ -21,8 +21,8 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@sendgrid/mail": "^8.1.4",
-    "@supabase/ssr": "^0.5.2",
-    "@supabase/supabase-js": "^2.47.10",
+    "@supabase/ssr": "^0.10.2",
+    "@supabase/supabase-js": "^2.103.3",
     "next": "^16.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
