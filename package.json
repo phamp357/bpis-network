@@ -7,7 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "db:login": "supabase login",
+    "db:link": "supabase link --project-ref wntesbtkfaqbjhhalmkd",
+    "db:push": "supabase db push",
+    "db:diff": "supabase db diff",
+    "db:new": "supabase migration new",
+    "db:types": "supabase gen types typescript --linked > lib/supabase/database.types.ts",
+    "seed": "tsx seed/index.ts",
+    "seed:clear": "tsx seed/clear.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
@@ -23,9 +31,12 @@
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
+    "dotenv": "^17.4.2",
     "eslint": "^9.18.0",
     "eslint-config-next": "^16.2.4",
+    "supabase": "^2.92.1",
     "tailwindcss": "^4.0.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.7.3"
   },
   "optionalDependencies": {
