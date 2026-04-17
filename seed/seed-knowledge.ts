@@ -17,7 +17,6 @@ An integrated framework combining three intelligences:
 
 Legacy is built where all three converge.`,
       published: true,
-      is_mock: true,
     },
     {
       slug: "iul-framework-overview",
@@ -39,7 +38,6 @@ How we vet Indexed Universal Life advisors and educate members.
 - Cash value access and loan strategies
 - Policy structuring for legacy transfer`,
       published: true,
-      is_mock: true,
     },
     {
       slug: "oocemr-framework",
@@ -58,7 +56,6 @@ A six-step lens for evaluating secured-debt acquisition opportunities.
 
 Used by the UCC Wealth Engine to structure deals.`,
       published: true,
-      is_mock: true,
     },
   ];
 
