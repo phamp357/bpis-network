@@ -15,7 +15,8 @@
     "db:new": "supabase migration new",
     "db:types": "supabase gen types typescript --linked > lib/supabase/database.types.ts",
     "seed": "tsx seed/index.ts",
-    "seed:clear": "tsx seed/clear.ts"
+    "seed:clear": "tsx seed/clear.ts",
+    "promote": "tsx scripts/promote-operator.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",

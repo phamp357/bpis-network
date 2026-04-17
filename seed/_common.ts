@@ -1,5 +1,6 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import { config as loadEnv } from "dotenv";
+import type { Database } from "../lib/supabase/database.types";
 
 loadEnv({ path: ".env.local" });
 
@@ -13,7 +14,7 @@ export function assertNotProd() {
   return env;
 }
 
-export function adminClient(): SupabaseClient {
+export function adminClient(): SupabaseClient<Database> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const secret = process.env.SUPABASE_SECRET_KEY;
   if (!url || !secret) {
@@ -21,7 +22,7 @@ export function adminClient(): SupabaseClient {
       "Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SECRET_KEY in .env.local"
     );
   }
-  return createClient(url, secret, {
+  return createClient<Database>(url, secret, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }
