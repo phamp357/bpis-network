@@ -18,6 +18,13 @@ export const NAV_ITEMS: NavItem[] = [
     group: "core",
   },
   {
+    label: "Analytics",
+    href: "/analytics",
+    phase: 9,
+    description: "Funnel, pipeline, and activity feed",
+    group: "core",
+  },
+  {
     label: "ORACLE",
     href: "/oracle",
     phase: 4,

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { COVENANT_QUESTIONS } from "@/lib/claude/covenant";
+import { isStripeEnabled } from "@/lib/stripe/config";
+import BuyPackageButton from "./BuyPackageButton";
 
 const PACKAGE_STYLES: Record<string, { badge: string; accent: string }> = {
   essential: {
@@ -52,10 +54,12 @@ export default async function CovenantResultPage({
   const { data: pkg } = rec?.recommended_package_id
     ? await supabase
         .from("packages")
-        .select("code, name, description, price, features")
+        .select("id, code, name, description, price, features, stripe_price_id")
         .eq("id", rec.recommended_package_id)
         .maybeSingle()
     : { data: null };
+
+  const stripeEnabled = isStripeEnabled();
 
   const email = userRow?.email ?? null;
   const style = pkg?.code ? PACKAGE_STYLES[pkg.code] : null;
@@ -144,6 +148,15 @@ export default async function CovenantResultPage({
             <p className="text-white/90 leading-relaxed whitespace-pre-wrap">
               {rec.strategy_notes}
             </p>
+          </div>
+
+          <div className="pt-4 mt-4 border-t border-white/10">
+            <BuyPackageButton
+              packageId={pkg.id}
+              packageName={pkg.name}
+              stripeEnabled={stripeEnabled}
+              hasStripePrice={!!pkg.stripe_price_id}
+            />
           </div>
         </div>
       )}

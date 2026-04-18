@@ -370,6 +370,7 @@ export type Database = {
           id: string
           name: string
           price: number | null
+          stripe_price_id: string | null
           updated_at: string
         }
         Insert: {
@@ -381,6 +382,7 @@ export type Database = {
           id?: string
           name: string
           price?: number | null
+          stripe_price_id?: string | null
           updated_at?: string
         }
         Update: {
@@ -392,6 +394,7 @@ export type Database = {
           id?: string
           name?: string
           price?: number | null
+          stripe_price_id?: string | null
           updated_at?: string
         }
         Relationships: []
@@ -505,6 +508,69 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "partners_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      purchases: {
+        Row: {
+          amount_cents: number | null
+          created_at: string
+          currency: string | null
+          id: string
+          is_mock: boolean
+          metadata: Json
+          package_id: string | null
+          status: Database["public"]["Enums"]["purchase_status"]
+          stripe_checkout_session_id: string | null
+          stripe_customer_id: string | null
+          stripe_payment_intent_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount_cents?: number | null
+          created_at?: string
+          currency?: string | null
+          id?: string
+          is_mock?: boolean
+          metadata?: Json
+          package_id?: string | null
+          status?: Database["public"]["Enums"]["purchase_status"]
+          stripe_checkout_session_id?: string | null
+          stripe_customer_id?: string | null
+          stripe_payment_intent_id?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount_cents?: number | null
+          created_at?: string
+          currency?: string | null
+          id?: string
+          is_mock?: boolean
+          metadata?: Json
+          package_id?: string | null
+          status?: Database["public"]["Enums"]["purchase_status"]
+          stripe_checkout_session_id?: string | null
+          stripe_customer_id?: string | null
+          stripe_payment_intent_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "purchases_package_id_fkey"
+            columns: ["package_id"]
+            isOneToOne: false
+            referencedRelation: "packages"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "purchases_user_id_fkey"
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "users"
@@ -682,6 +748,7 @@ export type Database = {
       org_stage: "idea" | "pre_revenue" | "early" | "growth" | "mature"
       package_code: "essential" | "builder" | "sovereign"
       partner_type: "iul_advisor" | "legal" | "cpa" | "broker" | "other"
+      purchase_status: "pending" | "paid" | "refunded" | "failed" | "canceled"
       readiness_tier: "foundation" | "activation" | "mastery"
       ucc_filing_status: "draft" | "filed" | "amended" | "terminated"
       user_role: "operator" | "admin" | "founder" | "partner_iul"
@@ -837,6 +904,7 @@ export const Constants = {
       org_stage: ["idea", "pre_revenue", "early", "growth", "mature"],
       package_code: ["essential", "builder", "sovereign"],
       partner_type: ["iul_advisor", "legal", "cpa", "broker", "other"],
+      purchase_status: ["pending", "paid", "refunded", "failed", "canceled"],
       readiness_tier: ["foundation", "activation", "mastery"],
       ucc_filing_status: ["draft", "filed", "amended", "terminated"],
       user_role: ["operator", "admin", "founder", "partner_iul"],
