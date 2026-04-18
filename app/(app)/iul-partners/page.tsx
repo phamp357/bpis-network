@@ -58,7 +58,7 @@ export default async function PartnersPage({
         </div>
         <Link
           href="/iul-partners/new"
-          className="shrink-0 rounded-md bg-white text-black font-medium px-4 py-2 hover:bg-white/90 transition"
+          className="shrink-0 rounded-md bg-brand text-brand-fg font-medium px-4 py-2 hover:bg-brand-hover transition"
         >
           Add partner
         </Link>
@@ -138,7 +138,7 @@ export default async function PartnersPage({
           <p className="text-white/60 mb-4">No partners match these filters.</p>
           <Link
             href="/iul-partners/new"
-            className="inline-block rounded-md bg-white text-black font-medium px-4 py-2 hover:bg-white/90 transition"
+            className="inline-block rounded-md bg-brand text-brand-fg font-medium px-4 py-2 hover:bg-brand-hover transition"
           >
             Add your first partner
           </Link>

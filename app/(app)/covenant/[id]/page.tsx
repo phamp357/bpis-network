@@ -11,12 +11,12 @@ const PACKAGE_STYLES: Record<string, { badge: string; accent: string }> = {
     accent: "border-slate-500/30",
   },
   builder: {
-    badge: "bg-indigo-500/15 text-indigo-200 border-indigo-500/30",
-    accent: "border-indigo-500/30",
+    badge: "bg-cyan-500/15 text-cyan-200 border-cyan-500/30",
+    accent: "border-cyan-500/30",
   },
   sovereign: {
-    badge: "bg-fuchsia-500/15 text-fuchsia-200 border-fuchsia-500/30",
-    accent: "border-fuchsia-500/30",
+    badge: "bg-brand/20 text-brand border-brand/40",
+    accent: "border-brand/40",
   },
 };
 

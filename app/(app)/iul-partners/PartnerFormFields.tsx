@@ -59,7 +59,7 @@ export default function PartnerFormFields({
           {PARTNER_TYPES.map((t) => (
             <label
               key={t.value}
-              className="cursor-pointer rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-sm hover:border-white/20 has-[:checked]:border-white/40 has-[:checked]:bg-white/[0.06]"
+              className="cursor-pointer rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-sm hover:border-white/20 has-[:checked]:border-brand has-[:checked]:bg-brand/10"
             >
               <input
                 type="radio"
@@ -130,7 +130,7 @@ export default function PartnerFormFields({
           {VETTING_STATUSES.map((s) => (
             <label
               key={s.value}
-              className="cursor-pointer rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-sm hover:border-white/20 has-[:checked]:border-white/40 has-[:checked]:bg-white/[0.06]"
+              className="cursor-pointer rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-sm hover:border-white/20 has-[:checked]:border-brand has-[:checked]:bg-brand/10"
             >
               <input
                 type="radio"

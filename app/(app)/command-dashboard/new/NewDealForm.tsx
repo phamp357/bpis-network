@@ -70,7 +70,7 @@ export default function NewDealForm() {
           {DEAL_PHASES.map((p, i) => (
             <label
               key={p.value}
-              className="cursor-pointer rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-sm hover:border-white/20 has-[:checked]:border-white/40 has-[:checked]:bg-white/[0.06]"
+              className="cursor-pointer rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-sm hover:border-white/20 has-[:checked]:border-brand has-[:checked]:bg-brand/10"
             >
               <input
                 type="radio"
@@ -107,7 +107,7 @@ export default function NewDealForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="rounded-md bg-white text-black font-medium px-5 py-2 hover:bg-white/90 disabled:opacity-60 disabled:cursor-not-allowed transition"
+          className="rounded-md bg-brand text-brand-fg font-medium px-5 py-2 hover:bg-brand-hover disabled:opacity-60 disabled:cursor-not-allowed transition"
         >
           {isPending ? "Saving…" : "Create deal"}
         </button>

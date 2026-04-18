@@ -39,7 +39,7 @@ export default function PartnerActions({
               onClick={() => setStatus(s.value)}
               className={`text-sm px-3 py-1.5 rounded-md border transition ${
                 isActive
-                  ? "border-white/40 bg-white/10 text-white cursor-default"
+                  ? "border-brand bg-brand/15 text-brand cursor-default"
                   : "border-white/10 bg-black/20 text-white/80 hover:border-white/20 disabled:opacity-50"
               }`}
             >

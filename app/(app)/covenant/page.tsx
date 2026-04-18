@@ -3,8 +3,8 @@ import { createClient } from "@/lib/supabase/server";
 
 const PACKAGE_STYLES: Record<string, string> = {
   essential: "bg-slate-500/10 text-slate-300 border-slate-500/20",
-  builder: "bg-indigo-500/10 text-indigo-300 border-indigo-500/20",
-  sovereign: "bg-fuchsia-500/10 text-fuchsia-300 border-fuchsia-500/20",
+  builder: "bg-cyan-500/10 text-cyan-300 border-cyan-500/20",
+  sovereign: "bg-brand/15 text-brand border-brand/40",
 };
 
 export default async function CovenantPage() {
@@ -57,7 +57,7 @@ export default async function CovenantPage() {
         </div>
         <Link
           href="/covenant/new"
-          className="shrink-0 rounded-md bg-white text-black font-medium px-4 py-2 hover:bg-white/90 transition"
+          className="shrink-0 rounded-md bg-brand text-brand-fg font-medium px-4 py-2 hover:bg-brand-hover transition"
         >
           New assessment
         </Link>
@@ -68,7 +68,7 @@ export default async function CovenantPage() {
           <p className="text-white/60 mb-4">No assessments yet.</p>
           <Link
             href="/covenant/new"
-            className="inline-block rounded-md bg-white text-black font-medium px-4 py-2 hover:bg-white/90 transition"
+            className="inline-block rounded-md bg-brand text-brand-fg font-medium px-4 py-2 hover:bg-brand-hover transition"
           >
             Run your first COVENANT
           </Link>

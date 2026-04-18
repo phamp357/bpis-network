@@ -61,7 +61,7 @@ export default function BuyPackageButton({
         type="button"
         onClick={onBuy}
         disabled={isPending}
-        className="rounded-md bg-white text-black font-medium px-4 py-2 text-sm hover:bg-white/90 disabled:opacity-60 transition"
+        className="rounded-md bg-brand text-brand-fg font-medium px-4 py-2 text-sm hover:bg-brand-hover disabled:opacity-60 transition"
       >
         {isPending ? "Starting checkout…" : `Purchase ${packageName}`}
       </button>

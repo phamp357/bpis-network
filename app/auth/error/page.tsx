@@ -21,7 +21,7 @@ export default async function AuthErrorPage({
         <p className="text-sm text-white/70 mb-6">{message}</p>
         <Link
           href="/login"
-          className="inline-block rounded-md bg-white text-black font-medium px-4 py-2 hover:bg-white/90 transition"
+          className="inline-block rounded-md bg-brand text-brand-fg font-medium px-4 py-2 hover:bg-brand-hover transition"
         >
           Back to sign-in
         </Link>

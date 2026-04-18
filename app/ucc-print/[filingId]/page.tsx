@@ -37,7 +37,7 @@ export default async function UccPrintPage({
 
       <div className="max-w-[8.5in] mx-auto p-8 md:p-12 print:p-0 print:max-w-none">
         {/* Header */}
-        <div className="border-b-4 border-black pb-4 mb-6">
+        <div className="border-b-4 pb-4 mb-6" style={{ borderColor: "#c2830b" }}>
           <div className="text-xs uppercase tracking-widest text-neutral-500">
             {isDraft && "Draft — internal review only"}
             {filing.status === "filed" && "Filed record"}

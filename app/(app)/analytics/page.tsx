@@ -149,8 +149,8 @@ export default async function AnalyticsPage() {
           <MixBars
             entries={[
               { key: "essential", label: "Essential", value: packageMix.essential, color: "bg-slate-400/50" },
-              { key: "builder", label: "Builder", value: packageMix.builder, color: "bg-indigo-500/50" },
-              { key: "sovereign", label: "Sovereign", value: packageMix.sovereign, color: "bg-fuchsia-500/50" },
+              { key: "builder", label: "Builder", value: packageMix.builder, color: "bg-cyan-500/50" },
+              { key: "sovereign", label: "Sovereign", value: packageMix.sovereign, color: "bg-brand/60" },
             ]}
           />
         </Section>

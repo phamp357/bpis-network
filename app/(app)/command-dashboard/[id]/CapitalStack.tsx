@@ -84,7 +84,7 @@ export default function CapitalStack({
               {CAPITAL_TIERS.map((t, i) => (
                 <label
                   key={t.value}
-                  className="cursor-pointer rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-sm hover:border-white/20 has-[:checked]:border-white/40 has-[:checked]:bg-white/[0.06]"
+                  className="cursor-pointer rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-sm hover:border-white/20 has-[:checked]:border-brand has-[:checked]:bg-brand/10"
                 >
                   <input
                     type="radio"
@@ -167,7 +167,7 @@ export default function CapitalStack({
             <button
               type="submit"
               disabled={isPending}
-              className="rounded-md bg-white text-black font-medium px-4 py-1.5 text-sm hover:bg-white/90 disabled:opacity-60 transition"
+              className="rounded-md bg-brand text-brand-fg font-medium px-4 py-1.5 text-sm hover:bg-brand-hover disabled:opacity-60 transition"
             >
               {isPending ? "Adding…" : "Add to stack"}
             </button>

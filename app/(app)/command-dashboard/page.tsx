@@ -44,7 +44,7 @@ export default async function CommandDashboardPage() {
         </div>
         <Link
           href="/command-dashboard/new"
-          className="shrink-0 rounded-md bg-white text-black font-medium px-4 py-2 hover:bg-white/90 transition"
+          className="shrink-0 rounded-md bg-brand text-brand-fg font-medium px-4 py-2 hover:bg-brand-hover transition"
         >
           New deal
         </Link>

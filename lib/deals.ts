@@ -31,9 +31,9 @@ export const CAPITAL_TIERS = [
 ] as const;
 
 export const TIER_STYLES: Record<string, string> = {
-  senior_debt: "bg-indigo-500/10 text-indigo-300 border-indigo-500/30",
+  senior_debt: "bg-slate-500/10 text-slate-300 border-slate-500/30",
   mezzanine: "bg-violet-500/10 text-violet-300 border-violet-500/30",
-  ucc_secured: "bg-fuchsia-500/10 text-fuchsia-300 border-fuchsia-500/30",
+  ucc_secured: "bg-brand/15 text-brand border-brand/40",
   seller_financing: "bg-amber-500/10 text-amber-300 border-amber-500/30",
   equity: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
 };

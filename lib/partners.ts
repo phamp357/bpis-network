@@ -24,7 +24,7 @@ export const VETTING_STYLES: Record<string, string> = {
 
 export const TYPE_STYLES: Record<string, string> = {
   iul_advisor: "bg-cyan-500/10 text-cyan-300 border-cyan-500/20",
-  legal: "bg-indigo-500/10 text-indigo-300 border-indigo-500/20",
+  legal: "bg-slate-500/10 text-slate-300 border-slate-500/20",
   cpa: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
   broker: "bg-amber-500/10 text-amber-300 border-amber-500/20",
   other: "bg-white/5 text-white/70 border-white/15",

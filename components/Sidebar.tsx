@@ -14,8 +14,10 @@ export default function Sidebar({ userEmail }: { userEmail: string }) {
 
   return (
     <aside className="w-64 shrink-0 border-r border-white/10 bg-black/30 flex flex-col print:hidden">
-      <div className="p-5 border-b border-white/10">
-        <div className="font-semibold tracking-tight">BPIS Network</div>
+      <div className="p-5 border-b border-white/10 border-l-2 border-l-brand">
+        <div className="font-semibold tracking-tight">
+          <span className="text-brand">BPIS</span> Network
+        </div>
         <div className="text-xs text-white/50 mt-0.5">Operator console</div>
       </div>
 
@@ -35,10 +37,10 @@ export default function Sidebar({ userEmail }: { userEmail: string }) {
                     <li key={item.href}>
                       <Link
                         href={item.href}
-                        className={`flex items-center justify-between px-2 py-1.5 rounded-md text-sm transition ${
+                        className={`flex items-center justify-between px-2 py-1.5 rounded-md text-sm transition border-l-2 ${
                           active
-                            ? "bg-white/10 text-white"
-                            : "text-white/70 hover:bg-white/5 hover:text-white"
+                            ? "bg-brand/10 text-brand border-l-brand"
+                            : "text-white/70 border-l-transparent hover:bg-white/5 hover:text-white"
                         }`}
                       >
                         <span>{item.label}</span>

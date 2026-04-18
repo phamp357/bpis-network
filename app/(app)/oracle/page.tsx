@@ -30,7 +30,7 @@ export default async function OraclePage() {
         </div>
         <Link
           href="/oracle/new"
-          className="shrink-0 rounded-md bg-white text-black font-medium px-4 py-2 hover:bg-white/90 transition"
+          className="shrink-0 rounded-md bg-brand text-brand-fg font-medium px-4 py-2 hover:bg-brand-hover transition"
         >
           New assessment
         </Link>
@@ -41,7 +41,7 @@ export default async function OraclePage() {
           <p className="text-white/60 mb-4">No assessments yet.</p>
           <Link
             href="/oracle/new"
-            className="inline-block rounded-md bg-white text-black font-medium px-4 py-2 hover:bg-white/90 transition"
+            className="inline-block rounded-md bg-brand text-brand-fg font-medium px-4 py-2 hover:bg-brand-hover transition"
           >
             Run your first ORACLE
           </Link>

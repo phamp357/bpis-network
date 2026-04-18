@@ -152,7 +152,7 @@ export default function UccFilings({
             <button
               type="submit"
               disabled={isPending}
-              className="rounded-md bg-white text-black font-medium px-4 py-1.5 text-sm hover:bg-white/90 disabled:opacity-60 transition"
+              className="rounded-md bg-brand text-brand-fg font-medium px-4 py-1.5 text-sm hover:bg-brand-hover disabled:opacity-60 transition"
             >
               {isPending ? "Adding…" : "Create draft"}
             </button>
@@ -182,7 +182,7 @@ export default function UccFilings({
                       href={`/ucc-print/${f.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-cyan-300/80 hover:text-cyan-200 underline underline-offset-2"
+                      className="text-xs text-brand hover:text-brand-hover underline underline-offset-2"
                     >
                       Print / Export PDF ↗
                     </a>
@@ -316,7 +316,7 @@ function MarkFiledButton({
           setExpanded(false);
           setNum("");
         }}
-        className="text-xs px-2 py-1 rounded-md bg-white text-black font-medium hover:bg-white/90"
+        className="text-xs px-2 py-1 rounded-md bg-brand text-brand-fg font-medium hover:bg-brand-hover"
       >
         Confirm
       </button>

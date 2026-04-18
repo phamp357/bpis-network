@@ -39,7 +39,7 @@ export default function Markdown({ source }: { source: string }) {
           a: ({ children, href }) => (
             <a
               href={href}
-              className="text-cyan-300 underline underline-offset-2 hover:text-cyan-200"
+              className="text-brand underline underline-offset-2 hover:text-brand-hover"
               target={href?.startsWith("http") ? "_blank" : undefined}
               rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
             >

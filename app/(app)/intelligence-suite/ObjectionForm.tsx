@@ -69,7 +69,7 @@ export default function ObjectionForm() {
           <button
             type="submit"
             disabled={isPending}
-            className="rounded-md bg-white text-black font-medium px-5 py-2 hover:bg-white/90 disabled:opacity-60 disabled:cursor-not-allowed transition"
+            className="rounded-md bg-brand text-brand-fg font-medium px-5 py-2 hover:bg-brand-hover disabled:opacity-60 disabled:cursor-not-allowed transition"
           >
             {isPending ? "Generating…" : "Generate response"}
           </button>
